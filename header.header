@@ -1,0 +1,9 @@
+{
+  "Authors": "Authors include Sag",
+  "Version": "00000000-0000-0000-0000-000000000000",
+  "ComponentId": {
+    "Guid": "c1094241-c91c-460d-b987-eb16ddc6f061",
+    "Name": "SagsMissiles"
+  },
+  "Description": "New description"
+}
