@@ -11,11 +11,11 @@ using UnityEngine;
 
 namespace SagsMissiles
 {
-    public class FtDInterface : GamePlugin_PostLoad
+    public class SagsMissilePlugin : GamePlugin_PostLoad
     {
-        public string name { get { return "SagsMissiles"; } }
-        
-        public Version version { get { return new Version(1, 0); } }
+        public string name => "SagsMissiles";
+
+        public Version version => new Version(1, 0);
 
         public void OnLoad() 
         { 
@@ -25,6 +25,7 @@ namespace SagsMissiles
         }
         public void OnStart()
         {
+            
             GameEvents.StartEvent.UnregWithEvent(OnStart);
             AdvLogger.LogEvent("[SagsMissiles] Mod Loaded!");
         }
