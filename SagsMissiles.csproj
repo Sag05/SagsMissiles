@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMissilePropulsion.cs" />
+    <Compile Include="Patches\PatchHelper.cs" />
+    <Compile Include="Patches\Patch_MissileMovementControl.cs" />
     <Compile Include="Patches\Patch_MissileMovementInfo.cs" />
     <Compile Include="Patches\Patch_MissilePhysics.cs" />
     <Compile Include="Patches\Patch_MissilePropulsion.cs" />
