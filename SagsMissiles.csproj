@@ -47,7 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMissilePropulsion.cs" />
+    <Compile Include="Components\IMissilePropulsion.cs" />
+    <Compile Include="Components\SM_SAMPT.cs" />
+    <Compile Include="Components\SM_SuperWings.cs" />
+    <Compile Include="Components\SM_Turbojet.cs" />
+    <Compile Include="Components\SM_Wings.cs" />
     <Compile Include="Patches\PatchHelper.cs" />
     <Compile Include="Patches\Patch_MissileMovementControl.cs" />
     <Compile Include="Patches\Patch_MissileMovementInfo.cs" />
@@ -55,10 +59,6 @@
     <Compile Include="Patches\Patch_MissilePropulsion.cs" />
     <Compile Include="SagsMissilePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SM_SAMPT.cs" />
-    <Compile Include="SM_SuperWings.cs" />
-    <Compile Include="SM_Turbojet.cs" />
-    <Compile Include="SM_Wings.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
