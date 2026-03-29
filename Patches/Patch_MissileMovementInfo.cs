@@ -9,7 +9,8 @@ namespace SagsMissiles
     {
         [HarmonyPatch("TurnRate")]
         [HarmonyPostfix]
-        private static void Postfix_TurnRate(MissileMovementInfo __instance, MissileBlueprint ____blueprint, ref float __result)
+        private static void Postfix_TurnRate(MissileMovementInfo __instance, MissileBlueprint ____blueprint,
+            ref float __result)
         {
             __result *= ____blueprint.Components.Any(c => c is SM_SuperWings) ? 50 : 1;
         }

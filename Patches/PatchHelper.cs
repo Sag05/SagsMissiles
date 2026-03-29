@@ -8,25 +8,23 @@ namespace SagsMissiles
 {
     public class PatchHelper
     {
-        public static bool SlidingWindowMatch(List<CodeInstruction> codes, OpCode[] reference, int startIndex) => SlidingWindowMatch(codes.ToArray(),reference, startIndex);
+        public static bool SlidingWindowMatch(List<CodeInstruction> codes, OpCode[] reference, int startIndex)
+        {
+            return SlidingWindowMatch(codes.ToArray(), reference, startIndex);
+        }
 
         public static bool SlidingWindowMatch(CodeInstruction[] codes, OpCode[] reference, int startIndex)
         {
-
-            
             if (startIndex + reference.Length > codes.Length)
                 return false;
-            
-            for (int i = 0; i < reference.Length; i++)
-            {
+
+            for (var i = 0; i < reference.Length; i++)
                 if (codes[startIndex + i].opcode != reference[i])
                     return false;
-            }
 
             AdvLogger.LogInfo(
-                $"[PatchHelper.SlidingWindowMatch] MATCH:\n{string.Join('\n',reference.Select(e=>e.Name + ";"))}" +
-                $"\n\nAGAINST:\n{string.Join('\n', codes.Select(e=>e.opcode.Name + ";"))}\n\nINDEX: {startIndex}"
-                
+                $"[PatchHelper.SlidingWindowMatch] MATCH:\n{string.Join('\n', reference.Select(e => e.Name + ";"))}" +
+                $"\n\nAGAINST:\n{string.Join('\n', codes.Select(e => e.opcode.Name + ";"))}\n\nINDEX: {startIndex}"
             );
             return true;
         }
