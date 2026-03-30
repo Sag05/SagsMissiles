@@ -5,11 +5,12 @@ using UnityEngine;
 
 namespace SagsMissiles
 {
-    [HarmonyPatch(typeof(MissilePhysics), "SetDrag")]
+    [HarmonyPatch(typeof(MissilePhysics))]
     public class Patch_MissilePhysics
     {
+        [HarmonyPatch("SetDrag")]
         [HarmonyPostfix]
-        private static void Postfix(MissilePhysics __instance, Missile ____missile, float ____baseAngularDrag,
+        private static void Postfix_SetDrag(MissilePhysics __instance, Missile ____missile, float ____baseAngularDrag,
             float waterFactor, float velocityForward, float velocityNormal, float altitude)
         {
             //Missile _missile = (Missile)typeof(MissilePhysics).GetField("_missile").GetValue(__instance);
