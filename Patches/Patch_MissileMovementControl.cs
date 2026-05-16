@@ -36,48 +36,48 @@ namespace SagsMissiles
             const float betaCoeff = 1.2f;
             const float latDampingCoeff = 2.5f;
 
-            const float referenceArea = 2.4f;
-            const float airDensity = 1.2f;
-            const float sideForceSlope = -4f;
-
-            Vector3 vAir = missile.Velocity;
-
+            const float referenceArea = 5.0f;
+            const float airDensity = 1.225f;
+            const float sideForceSlope = 5f;
+            
             Transform transform = missile.transform;
-
-            Vector3 localVelocity = transform.InverseTransformDirection(missile.Rigidbody.linearVelocity);
-
-            float forwardSpeed = localVelocity.z;
-            float lateralSpeed = localVelocity.x;
-
-            // sideslip angle (radians)
-            float beta = Mathf.Atan2(lateralSpeed, Mathf.Abs(forwardSpeed));
-
+            
+            Vector3 localVelocity =
+                transform.InverseTransformDirection(
+                    missile.Rigidbody.linearVelocity
+                );
+            
             float speed = missile.Rigidbody.linearVelocity.magnitude;
-
+            
             float dynamicPressure =
                 0.5f * airDensity * speed * speed;
 
-            float sideForce =
+            // Local lateral airflow velocity
+            Vector2 lateralVelocity = new Vector2(
+                localVelocity.x,
+                localVelocity.y
+            );
+
+            // Convert lateral velocity into aerodynamic restoring force
+            Vector2 lateralForce =
+                -lateralVelocity *
                 dynamicPressure *
                 referenceArea *
-                sideForceSlope *
-                beta;
+                sideForceSlope /
+                Mathf.Max(speed, 1f);
 
-            Vector3 force = transform.right * sideForce;
+            // Convert back to local 3D force
+            Vector3 localForce = new Vector3(
+                lateralForce.x,
+                lateralForce.y,
+                0f
+            );
 
-            missile.Rigidbody.AddForce(force, ForceMode.Force);
+            // Convert to world force
+            Vector3 worldForce =
+                transform.TransformDirection(localForce);
 
-            // Vector3 forward = missile.transform.forward;
-            // Vector3 right = missile.transform.right;
-// 
-            // float lateralSpeed = Vector3.Dot(vAir, right);
-            // float beta = lateralSpeed / speed;
-// 
-// 
-            // float sideForceMag = -betaCoeff * speed * speed * beta - latDampingCoeff * lateralSpeed;
-// 
-            // Vector3 sideForce = right * sideForceMag;
-
+            missile.Rigidbody.AddForce(worldForce, ForceMode.Force);
 
             return false;
         }

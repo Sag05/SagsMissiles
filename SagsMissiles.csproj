@@ -54,6 +54,7 @@
         <Compile Include="Components\SM_SuperWings.cs"/>
         <Compile Include="Components\SM_Turbojet.cs"/>
         <Compile Include="Components\SM_Wings.cs"/>
+        <Compile Include="MissileMath.cs" />
         <Compile Include="Patches\PatchHelper.cs"/>
         <Compile Include="Patches\Patch_MissileMovementControl.cs"/>
         <Compile Include="Patches\Patch_MissileMovementInfo.cs"/>

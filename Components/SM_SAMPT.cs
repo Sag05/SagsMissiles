@@ -39,7 +39,8 @@ namespace SagsMissiles
         
         public void Propel(MissilePropulsion missilePropulsion)
         {
-            float thrustForce = missilePropulsion.Missile.TimeSinceLaunch <= 3.75f ? 105500 : 8250;
+            
+            float thrustForce = missilePropulsion.Missile.TimeSinceLaunch <= 0.1f ? 0f : missilePropulsion.Missile.TimeSinceLaunch <= 3.75f ? 105_500f : 8250f;
             
             missilePropulsion.Missile!.Rigidbody.AddForceAtPosition(missilePropulsion.Missile.Forward.normalized * thrustForce,
                 missilePropulsion.Position, ForceMode.Force);

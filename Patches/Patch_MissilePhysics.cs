@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Reflection;
+using BrilliantSkies.Core.Logger;
 using BrilliantSkies.Ftd.Missiles;
 using BrilliantSkies.Ftd.Missiles.Blueprints;
 using HarmonyLib;
@@ -25,22 +26,27 @@ namespace SagsMissiles
             if (!missile.Blueprint.Components.Any(c => c is ISagsMissileComponent))
                 return true;
             
+            missile.Rigidbody.constraints = RigidbodyConstraints.None;
+            
             missile.Rigidbody.drag = 0;
             missile.Rigidbody.angularDrag = 0;
             
             missile.Rigidbody.mass = 450f;
-            Vector3 v = missile.Rigidbody.velocity;
+            Vector3 v = missile.Rigidbody.linearVelocity;
             float speed = v.magnitude;
+
+            float diameter = 0.180f;
             
             float rho = 1.225f;        // air density at sea level
-            float Cd  = 2.65f;          // drag coefficient (tune this)
-            float A   = Mathf.Pow(0.5f*180/1000,2) * Mathf.PI;         // reference area (tune this)
+            float Cd  = 3.2f;          // drag coefficient (tune this)
+            float A   = MissileMath.CircleArea(diameter);         // reference area (tune this)
 
-            float dragMag = 0.5f * rho * speed * speed * Cd * A;
+            float dragMag = MissileMath.DragEquation(speed, rho, Cd, A);
 
             Vector3 drag = -v.normalized * dragMag;
 
             missile.Rigidbody.AddForce(drag, ForceMode.Force);
+            AdvLogger.LogInfo("Drag (N): " + dragMag);
             return false;
             // //Missile _missile = (Missile)typeof(MissilePhysics).GetField("_missile").GetValue(__instance);
             // //float _baseDrag = (float)typeof(MissilePhysics).GetField("_baseDrag").GetValue(__instance) / 2;
