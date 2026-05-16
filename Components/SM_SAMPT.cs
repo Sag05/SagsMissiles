@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace SagsMissiles
 {
-    public class SM_SAMPT : MissileShortRangeThruster, IMissilePropulsion
+    public class SM_SAMPT : MissileShortRangeThruster, IMissilePropulsion, ISagsMissileComponent
     {
         public new const enumMissileComponentType ComponentType = (enumMissileComponentType)25567043;
         private static readonly ILocFile _locFile;
@@ -36,10 +36,13 @@ namespace SagsMissiles
         public override UIParameter UseFlameParameter => null;
 
 
+        
         public void Propel(MissilePropulsion missilePropulsion)
         {
-            missilePropulsion.Missile!.Rigidbody.AddForceAtPosition(missilePropulsion.Missile.Forward * 250,
-                missilePropulsion.Position, ForceMode.Acceleration);
+            float thrustForce = missilePropulsion.Missile.TimeSinceLaunch <= 3.75f ? 105500 : 8250;
+            
+            missilePropulsion.Missile!.Rigidbody.AddForceAtPosition(missilePropulsion.Missile.Forward.normalized * thrustForce,
+                missilePropulsion.Position, ForceMode.Force);
         }
     }
 }

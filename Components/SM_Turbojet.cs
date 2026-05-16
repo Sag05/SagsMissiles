@@ -10,7 +10,7 @@ using BrilliantSkies.Localisation.Runtime.FileManagers.Files;
 
 namespace SagsMissiles
 {
-    public class SM_Turbojet : MissileSecondaryPropeller
+    public class SM_Turbojet : MissileSecondaryPropeller, ISagsMissileComponent
     {
         public new const enumMissileComponentType ComponentType = (enumMissileComponentType)25567042;
         private static readonly ILocFile _locFile;

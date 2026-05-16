@@ -5,6 +5,9 @@ namespace SagsMissiles
     public interface IMissilePropulsion
     {
         bool CallOriginalRun => false;
-        public void Propel(MissilePropulsion missilePropulsion);
+
+        public virtual void Propel(MissilePropulsion missilePropulsion)
+        {
+        }
     }
 }

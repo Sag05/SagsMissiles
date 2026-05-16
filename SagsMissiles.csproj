@@ -13,6 +13,7 @@
         <FileAlignment>512</FileAlignment>
         <Deterministic>true</Deterministic>
         <LangVersion>8</LangVersion>
+        <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <DebugSymbols>true</DebugSymbols>
@@ -48,6 +49,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Components\IMissilePropulsion.cs"/>
+        <Compile Include="Components\ISagsMissileComponent.cs" />
         <Compile Include="Components\SM_SAMPT.cs"/>
         <Compile Include="Components\SM_SuperWings.cs"/>
         <Compile Include="Components\SM_Turbojet.cs"/>

@@ -6,7 +6,7 @@ using BrilliantSkies.Localisation.Runtime.FileManagers.Files;
 
 namespace SagsMissiles
 {
-    internal class SM_Wings : MissileFins
+    internal class SM_Wings : MissileFins, ISagsMissileComponent
     {
         public new const enumMissileComponentType ComponentType = (enumMissileComponentType)26780;
         public static ILocFile _locFile;
