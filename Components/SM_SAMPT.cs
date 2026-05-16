@@ -27,7 +27,7 @@ namespace SagsMissiles
         public override string Description =>
             _locFile.Get("Desc", "A BIG engine, slow acceleration but very efficient.");
 
-        protected override string MeshPath => "R_Missiles/missile body";
+        protected override string MeshPath => "dde173b6-023d-4af5-8ffa-34460084f6d3";
         protected override bool IsPropeller => false;
         public override float FuelPerThrust => 2f;
         public override float IsIonParameterValue => IsIonParameter?.Value ?? 0f;

@@ -1,0 +1,13 @@
+{
+  "FilenameOrUrl": "booster.png",
+  "Source": 0,
+  "LoadIt": true,
+  "WaitUntilRequired": false,
+  "HashTag": "",
+  "Instanced": false,
+  "ComponentId": {
+    "Guid": "f89c4bc5-4690-41a5-a07e-73b08e374d09",
+    "Name": "boostertexture"
+  },
+  "Description": "New description"
+}
