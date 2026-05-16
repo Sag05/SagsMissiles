@@ -1,0 +1,94 @@
+{
+  "ViewDistanceLayer": 0,
+  "RemapUvsInChunkMesh": false,
+  "ColorTextureReference": {
+    "Reference": {
+      "Guid": "f89c4bc5-4690-41a5-a07e-73b08e374d09",
+      "Name": "boostertexture"
+    },
+    "IsValidReference": true
+  },
+  "BumpTextureReference": {
+    "Reference": {
+      "Guid": "00000000-0000-0000-0000-000000000000",
+      "Name": ""
+    },
+    "IsValidReference": false
+  },
+  "DamageTextureReference": {
+    "Reference": {
+      "Guid": "00000000-0000-0000-0000-000000000000",
+      "Name": ""
+    },
+    "IsValidReference": false
+  },
+  "AoReference": {
+    "Reference": {
+      "Guid": "e6d6a9b2-9561-42c0-87c0-a6612983364b",
+      "Name": "boosterAmbOcc"
+    },
+    "IsValidReference": true
+  },
+  "PaintTextureReference": {
+    "Reference": {
+      "Guid": "e6d6a9b2-9561-42c0-87c0-a6612983364b",
+      "Name": "boosterAmbOcc"
+    },
+    "IsValidReference": true
+  },
+  "HeightReference": {
+    "Reference": {
+      "Guid": "00000000-0000-0000-0000-000000000000",
+      "Name": ""
+    },
+    "IsValidReference": false
+  },
+  "MetallicReference": {
+    "Reference": {
+      "Guid": "9dd32e62-77e6-41d1-836a-865e4696955a",
+      "Name": "missile mat Metallic"
+    },
+    "IsValidReference": true
+  },
+  "RoughnessReference": {
+    "Reference": {
+      "Guid": "00000000-0000-0000-0000-000000000000",
+      "Name": ""
+    },
+    "IsValidReference": false
+  },
+  "EmissionReference": {
+    "Reference": {
+      "Guid": "00000000-0000-0000-0000-000000000000",
+      "Name": ""
+    },
+    "IsValidReference": false
+  },
+  "PreviewMeshReference": {
+    "Reference": {
+      "Guid": "dde173b6-023d-4af5-8ffa-34460084f6d3",
+      "Name": "booster"
+    },
+    "IsValidReference": true
+  },
+  "SpecularColor": "0,0,0,0",
+  "HighlightColor": "1,1,1,1",
+  "ShadowColor": "0,0,0,0",
+  "Shininess": 0.0,
+  "HeightScalar": 0.5,
+  "OcculsionScalar": 0.5,
+  "BumpScalar": 0.5,
+  "TextureScale": 1.0,
+  "MetallicScalar": 1.0,
+  "SmoothnessScalar": 1.0,
+  "EmissionColor": "1,1,1,1",
+  "EmissionIntensity": 1.0,
+  "ShaderType": 0,
+  "Instanced": false,
+  "AvailableForTracks": false,
+  "ComponentId": {
+    "Guid": "220dffbc-fe25-4fa1-86cc-899531584b5a",
+    "Name": "booster"
+  },
+  "Description": "New description"
+}
